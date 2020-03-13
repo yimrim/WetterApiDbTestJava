@@ -12,9 +12,9 @@ public class dbconnection {
 
         Connection con = null;
         try {
-            String url1 = "jdbc:mysql://localhost:3306/apidata";
-            String user = "yimrim";
-            String pw = "duaredumm";
+            String url1 = "jdbc:mysql://localhost:3306/apidata"; //DB address
+            String user = "root"; // DB user
+            String pw = ""; // DB password
             con = getConnection(url1, user, pw);
             Statement stmt = con.createStatement();
             return stmt.executeUpdate("INSERT INTO wetter (Temperatur,Windgeschwindigkeit) VALUES (" + Temperatur + "," + windms + ")");

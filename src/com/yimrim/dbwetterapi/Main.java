@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, JSONException, InterruptedException, ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         while (true) {
-            String Ort = "Wasbek";
+            String Ort = "Wasbek"; //Location for weather data
             URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + Ort + "&units=metric&appid=ea83cbef0fe44057e30baa8b0741c8b1");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
@@ -34,15 +34,15 @@ public class Main {
 
             JSONObject jo = new JSONObject(content.toString());
             JSONObject jom = jo.getJSONObject("main");
-            double Temperatur = jom.getDouble("temp");
+            double temperatur = jom.getDouble("temp");
             JSONObject joc = jo.getJSONObject("wind");
             double windms = joc.getDouble("speed");
             double windkm = windms * 3.6;
-            System.out.println("Aktuelle Temperatur: " + Temperatur + "°C");
+            System.out.println("Aktuelle Temperatur: " + temperatur + "°C");
             System.out.println("Aktuelle Windgeschwindigkeit: " + windms + " m/S");
 
             dbconnection dbcon = new dbconnection();
-            dbcon.insert(Temperatur, windms);
+            dbcon.insert(temperatur, windms);
             System.out.println("Übertragung Erfolgreich!");
 
             TimeUnit.MINUTES.sleep(10);

@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 import static java.sql.DriverManager.getConnection;
 
-public class dbconnection {
+public class DbConnection {
 
     public int insert(double Temperatur, double windms) throws SQLException {
 

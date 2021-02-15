@@ -41,7 +41,7 @@ public class Main {
             System.out.println("Aktuelle Temperatur: " + temperatur + "°C");
             System.out.println("Aktuelle Windgeschwindigkeit: " + windms + " m/S");
 
-            dbconnection dbcon = new dbconnection();
+            DbConnection dbcon = new DbConnection();
             dbcon.insert(temperatur, windms);
             System.out.println("Übertragung Erfolgreich!");
 
